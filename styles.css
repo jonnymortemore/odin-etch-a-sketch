@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+
+#grid-container {
+    width: 905px;
+    height: 905px;
+    border: 2px solid black;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
