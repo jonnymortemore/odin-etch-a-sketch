@@ -1,12 +1,16 @@
 const container = document.querySelector('#grid-container')
-const CANVAS_SIZE = 900;
+const CANVAS_SIZE = 800;
 
 createGrid(100);
 
 document.querySelector('#change-grid-size').addEventListener('click', () => {
     let gridSize = ""
     do {
-        gridSize = parseInt(prompt("What size should the grid be?", 50));
+        gridSize = prompt("What size should the grid be?", 50);
+        if (gridSize == null) {
+            return
+        }
+        gridSize = parseInt(gridSize)
     } while (isNaN(gridSize));
     container.innerHTML = "";
     createGrid(gridSize); 
