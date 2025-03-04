@@ -1,4 +1,6 @@
-
+* {
+    font-family: monospace;
+}
 #grid-container {
     width: 800px;
     height: 800px;
@@ -26,10 +28,13 @@ button {
     border: 2px solid black;
     color: black;
     border-radius: 5px;
-    font-family: monospace;
 }
 
 button:hover {
     background-color: black;
     color: white;
+}
+
+li {
+    padding: 5px;
 }

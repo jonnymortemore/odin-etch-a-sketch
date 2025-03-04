@@ -18,10 +18,14 @@ document.querySelector('#change-grid-size').addEventListener('click', () => {
 
 document.querySelector('#reset-grid').addEventListener('click', () => {
     document.querySelectorAll('.grid-element').forEach((el) => {
-        el.style.opacity = 0;
-        el.dataset.opacity = 0;
+        resetGridElement(el);
     })
 })
+
+function resetGridElement(el) {
+    el.style.opacity = 0;
+    el.dataset.opacity = 0;
+}
 
 function createGrid(gridElements) {
     const gridElementSize = `${CANVAS_SIZE / gridElements}px`
@@ -42,7 +46,10 @@ function createGrid(gridElements) {
                 el.style.opacity = 0.1 * opacity
             }
             
-        })
+        });
+        el.addEventListener('click', (e) => {
+            resetGridElement(e.target);
+        });
         container.appendChild(el);
     }
 }
