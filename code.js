@@ -1,7 +1,7 @@
 const container = document.querySelector('#grid-container')
 const CANVAS_SIZE = 800;
 
-createGrid(100);
+createGrid(10);
 
 document.querySelector('#change-grid-size').addEventListener('click', () => {
     let gridSize = ""
@@ -18,7 +18,8 @@ document.querySelector('#change-grid-size').addEventListener('click', () => {
 
 document.querySelector('#reset-grid').addEventListener('click', () => {
     document.querySelectorAll('.grid-element').forEach((el) => {
-        el.style.backgroundColor = "";
+        el.style.opacity = 0;
+        el.dataset.opacity = 0;
     })
 })
 
@@ -29,8 +30,17 @@ function createGrid(gridElements) {
         el.classList.toggle('grid-element');
         el.style.width = gridElementSize;
         el.style.height = gridElementSize;
+        el.dataset.opacity = 0;
+        el.style.opacity = 0;
+        el.style.backgroundColor = "black";
         el.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = "black";
+            let el = e.target;
+            let opacity = parseInt(el.dataset.opacity) + 1;
+            if (opacity < 10) {
+                el.dataset.opacity = opacity
+                el.style.opacity = 0.1 * opacity
+            }
+            
         })
         container.appendChild(el);
     }
