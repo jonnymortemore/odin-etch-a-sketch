@@ -35,8 +35,9 @@ function createGrid(gridElements) {
         el.style.backgroundColor = "black";
         el.addEventListener('mouseover', (e) => {
             let el = e.target;
-            let opacity = parseInt(el.dataset.opacity) + 1;
+            let opacity = parseInt(el.dataset.opacity);
             if (opacity < 10) {
+                opacity += 1
                 el.dataset.opacity = opacity
                 el.style.opacity = 0.1 * opacity
             }
