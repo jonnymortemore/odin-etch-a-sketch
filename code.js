@@ -6,12 +6,12 @@ createGrid(10);
 document.querySelector('#change-grid-size').addEventListener('click', () => {
     let gridSize = ""
     do {
-        gridSize = prompt("What size should the grid be?", 50);
+        gridSize = prompt("What size should the grid be? (Must be 100 or less)", 50);
         if (gridSize == null) {
             return
         }
         gridSize = parseInt(gridSize)
-    } while (isNaN(gridSize));
+    } while (isNaN(gridSize) || gridSize > 100);
     container.innerHTML = "";
     createGrid(gridSize); 
 });
