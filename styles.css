@@ -2,7 +2,8 @@
 #grid-container {
     width: 800px;
     height: 800px;
-    border: 2px solid black;
+    border: 4px solid black;
+    border-radius: 10px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
